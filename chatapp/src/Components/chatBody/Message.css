@@ -1,0 +1,11 @@
+.message-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 450px;
+  overflow-y: auto;
+  background-color: rgb(182, 182, 182);
+}
+.message-container::-webkit-scrollbar {
+  display: none;
+}

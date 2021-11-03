@@ -1,25 +1,47 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react'
+import rose from './rose.jpg'
+import coconut from './coconut.jpg'
+import { useDrag, useDrop } from 'react-dnd'
+import './App.css'
 
-function App() {
+const App = () => {
+  const [indexValue, setIndexValue] = useState(1)
+  const [{ isDragging }, dragRef] = useDrag(() => ({
+    type: 'image',
+    collect: (monitor) => ({
+      isDragging: monitor.isDragging(),
+    }),
+  }))
+  const [{ isOver }, dropRef] = useDrop(() => ({
+    accept: 'image',
+    drop: () => moveImage(),
+    collect: (monitor) => ({
+      isOver: monitor.isOver(),
+    }),
+  }))
+  const moveImage = (i) => {
+    setIndexValue(i)
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <div
+        className="first-image"
+        ref={dragRef}
+        style={{
+          backgroundImage: isDragging ? { coconut } : { rose },
+        }}
+      >
+        <img src={rose} alt="flower" />
+      </div>
+      <div
+        className="second-image"
+        ref={dropRef}
+        style={{ backgroundImage: isOver ? { rose } : { coconut } }}
+      >
+        <img src={coconut} alt="tree" />
+      </div>
+    </>
+  )
 }
 
-export default App;
+export default App

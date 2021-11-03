@@ -1,0 +1,17 @@
+body {
+  background-image: url('./bgImage.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+.bgImage {
+  position: relative;
+  top: 100px;
+  left: 480px;
+}
+.title {
+  position: absolute;
+  top: 50px;
+  left: 140px;
+  color: white;
+}

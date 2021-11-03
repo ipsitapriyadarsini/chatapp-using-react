@@ -1,0 +1,27 @@
+header {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  height: 70px;
+  background-color: rgb(41, 112, 103);
+  color: white;
+}
+.avtar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: silver;
+}
+.contact-name {
+  font-size: 20px;
+}
+.last-seen {
+  font-size: 12px;
+  display: block;
+}
+ img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
